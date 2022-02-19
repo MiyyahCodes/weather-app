@@ -1,0 +1,92 @@
+h1,
+.weather,
+h6,
+h3,
+.col-1 {
+  font-family: "Lobster", cursive;
+}
+.cityName {
+  font-size: 60px;
+  margin-bottom: 2px;
+  line-height: 1;
+}
+#celsius-link {
+  text-decoration: none;
+}
+#farenheit-link {
+  text-decoration: none;
+}
+#celsius-link:hover {
+  text-decoration: underline;
+}
+#farenheit-link:hover {
+  text-decoration: underline;
+}
+.time {
+  font-size: 30px;
+  line-height: 1;
+}
+.units {
+  font-size: 25px;
+  top: -50px;
+  position: relative;
+  margin-left: 8px;
+}
+h6 {
+  padding: 18px;
+  margin: 0 auto;
+}
+form {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+ul {
+  list-style: none;
+}
+li {
+  display: inline;
+  margin: 0 15px;
+}
+body {
+  background: linear-gradient(
+    179.7deg,
+    rgb(248, 126, 126) -0.5%,
+    rgb(251, 206, 143) 35.3%,
+    rgb(184, 252, 233) 67.2%,
+    rgb(118, 162, 229) 92.3%
+  );
+  max-width: 100%;
+}
+.card {
+  margin: 0 18px;
+  margin: 0 auto;
+  display: block;
+}
+.weather {
+  font-size: 100px;
+  margin-bottom: 0px;
+  line-height: 1;
+}
+.search {
+  padding: 9px;
+}
+.col-1 {
+  margin: 14px;
+  display: block;
+  margin: 0 auto;
+}
+.forecast {
+  font-size: 30px;
+  margin: 14px;
+}
+.future {
+  margin: 16px;
+}
+.weather-app {
+  border: 3px solid blueviolet;
+  border-radius: 10px;
+  padding-left: 30px;
+  padding-right: -40px;
+  text-align: center;
+  margin-top: 10px;
+}
