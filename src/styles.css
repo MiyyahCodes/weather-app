@@ -2,7 +2,8 @@ h1,
 .weather,
 h6,
 h3,
-.col-1 {
+.col-1,
+.card {
   font-family: "Lobster", cursive;
 }
 .cityName {
