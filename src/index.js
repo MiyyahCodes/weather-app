@@ -56,6 +56,10 @@ function currentPosition(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(geolocation);
 }
+function changeBodyBg() {
+  document.body.style.background =
+    "background: linear-gradient(to top, #dbdcd7 0%, #dddcd7 24%, #e2c9cc 30%, #e7627d 46%, #b8235a 59%, #801357 71%, #3d1635 84%, #1c1a27 100%);";
+}
 let form = document.querySelector("form");
 form.addEventListener("submit", searchCity);
 let locationButton = document.querySelector("#location-button");
