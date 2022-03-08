@@ -23,9 +23,8 @@ function currentDay() {
 }
 function mainWeather(response) {
   document.querySelector(".cityName").innerHTML = response.data.name;
-  document.querySelector("#mainWeather").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  let celsiusTemperature = Math.round(response.data.main.temp);
+  document.querySelector("#mainWeather").innerHTML = celsiusTemperature;
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
     "src",
@@ -57,6 +56,18 @@ function geolocation(position) {
 
   axios.get(`${apiUrl}`).then(mainWeather);
 }
+let celsiusTemperature = null;
+function showCelsius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#mainWeather");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+function showFarenheit(event) {
+  event.preventDefault();
+  let farenheitConversion = (celsiusTemperature * 9) / 5 + 32;
+  let temperatureElement = document.querySelector("#mainWeather");
+  temperatureElement.innerHTML = Math.round(farenheitConversion);
+}
 function currentPosition(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(geolocation);
@@ -71,3 +82,7 @@ let form = document.querySelector("form");
 form.addEventListener("submit", searchCity);
 let locationButton = document.querySelector("#location-button");
 locationButton.addEventListener("click", currentPosition);
+let celsius = document.querySelector("#celsius-link");
+celsius.addEventListener("click", showCelsius);
+let farenheit = document.querySelector("#farenheit-link");
+farenheit.addEventListener("click", showFarenheit);
