@@ -23,7 +23,7 @@ function currentDay() {
 }
 function mainWeather(response) {
   document.querySelector(".cityName").innerHTML = response.data.name;
-  let celsiusTemperature = Math.round(response.data.main.temp);
+  celsiusTemperature = Math.round(response.data.main.temp);
   document.querySelector("#mainWeather").innerHTML = celsiusTemperature;
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
