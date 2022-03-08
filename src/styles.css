@@ -47,6 +47,7 @@ ul {
 li {
   display: inline;
   margin: 0 15px;
+  text-transform: capitalize;
 }
 body {
   background-image: linear-gradient(
