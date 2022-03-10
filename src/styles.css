@@ -2,7 +2,7 @@ h1,
 .weather,
 h6,
 h3,
-.col-1,
+.col-4,
 .card {
   font-family: "Lobster", cursive;
 }
@@ -72,7 +72,7 @@ body {
 .search {
   padding: 9px;
 }
-.col-1 {
+.col-4 {
   margin: 14px;
   display: block;
   margin: 0 auto;
