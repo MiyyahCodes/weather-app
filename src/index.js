@@ -76,6 +76,27 @@ function changeBodyBg() {
   document.body.style.backgroundImage =
     "radial-gradient(circle at 10% 20%, rgb(90, 92, 106) 0%, rgb(32, 45, 58) 81.3%)";
 }
+function forecast() {
+  let forecastTemp = document.querySelector("#forecast-block");
+  let days = ["Mon", "Tue", "Wed"];
+  let forecastHTML = `<div class="row>`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+                <div class="col-4">
+              ${day}
+              <div class="forecast">
+                <i class="fas fa-cloud-showers-heavy"></i>
+              </div>
+              <div class="future">23&#xb0;</div>
+            </div>
+            `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastTemp.innerHTML = forecastHTML;
+}
+forecast();
 let themeButton = document.querySelector("#theme");
 themeButton.addEventListener("click", changeBodyBg);
 let form = document.querySelector("form");

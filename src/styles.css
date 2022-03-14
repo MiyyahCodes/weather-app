@@ -2,7 +2,7 @@ h1,
 .weather,
 h6,
 h3,
-.col-4,
+#forecast-block,
 .card {
   font-family: "Lobster", cursive;
 }
@@ -73,13 +73,10 @@ body {
   padding: 9px;
 }
 .col-4 {
-  margin: 14px;
-  display: block;
   margin: 0 auto;
 }
 .forecast {
   font-size: 30px;
-  margin: 14px;
 }
 .future {
   margin: 16px;
