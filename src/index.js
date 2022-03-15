@@ -21,23 +21,34 @@ function currentDay() {
   let h3 = document.querySelector("h3");
   h3.innerHTML = ` ${currentDate},  ${time}:${minute}`;
 }
+function formatForecastDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
 function forecast(response) {
-  console.log(response.data.daily);
+  let forecastResponse = response.data.daily;
   let forecastTemp = document.querySelector("#forecast-block");
-  let days = ["Mon", "Tue", "Wed"];
   let forecastHTML = `<div class="row">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecastResponse.forEach(function (forecastDay, index) {
+    if (index < 3) {
+      forecastHTML =
+        forecastHTML +
+        `
             <div class="col-4">
-              ${day}
+              ${formatForecastDay(forecastDay.dt)}
               <div class="forecast">
-                <i class="fas fa-cloud-showers-heavy"></i>
+              <img src ="https://openweathermap.org/img/wn/${
+                forecastDay.weather[0].icon
+              }@2x.png" width="42">
               </div>
-              <div class="future">23&#xb0;</div>
+              <div class="future">${Math.round(
+                forecastDay.temp.max
+              )}&#xb0;</div>
             </div>
             `;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastTemp.innerHTML = forecastHTML;
