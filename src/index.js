@@ -21,6 +21,32 @@ function currentDay() {
   let h3 = document.querySelector("h3");
   h3.innerHTML = ` ${currentDate},  ${time}:${minute}`;
 }
+function forecast(response) {
+  console.log(response.data.daily);
+  let forecastTemp = document.querySelector("#forecast-block");
+  let days = ["Mon", "Tue", "Wed"];
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+            <div class="col-4">
+              ${day}
+              <div class="forecast">
+                <i class="fas fa-cloud-showers-heavy"></i>
+              </div>
+              <div class="future">23&#xb0;</div>
+            </div>
+            `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastTemp.innerHTML = forecastHTML;
+}
+function getForecast(coordinates) {
+  let apiKey = "a8abc05c136ad31a0eb3d9ef118a4a0c";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(`${apiUrl}`).then(forecast);
+}
 function mainWeather(response) {
   document.querySelector(".cityName").innerHTML = response.data.name;
   celsiusTemperature = Math.round(response.data.main.temp);
@@ -38,6 +64,7 @@ function mainWeather(response) {
   document.querySelector("#humidity").innerHTML = Math.round(
     response.data.main.humidity
   );
+  getForecast(response.data.coord);
 }
 function searchCity(event) {
   event.preventDefault();
@@ -76,27 +103,6 @@ function changeBodyBg() {
   document.body.style.backgroundImage =
     "radial-gradient(circle at 10% 20%, rgb(90, 92, 106) 0%, rgb(32, 45, 58) 81.3%)";
 }
-function forecast() {
-  let forecastTemp = document.querySelector("#forecast-block");
-  let days = ["Mon", "Tue", "Wed"];
-  let forecastHTML = `<div class="row>`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
-                <div class="col-4">
-              ${day}
-              <div class="forecast">
-                <i class="fas fa-cloud-showers-heavy"></i>
-              </div>
-              <div class="future">23&#xb0;</div>
-            </div>
-            `;
-  });
-  forecastHTML = forecastHTML + `</div>`;
-  forecastTemp.innerHTML = forecastHTML;
-}
-forecast();
 let themeButton = document.querySelector("#theme");
 themeButton.addEventListener("click", changeBodyBg);
 let form = document.querySelector("form");
